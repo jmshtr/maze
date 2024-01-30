@@ -3,13 +3,13 @@ import random
 # Define the maze as a list of lists
 maze = [
     ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
-    ['#', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#'],
+    ['#', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#'],  # Start
     ['#', '#', '#', ' ', '#', ' ', '#', '#', '#', '#'],
     ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
     ['#', '#', '#', '#', '#', '#', '#', '#', ' ', '#'],
     ['#', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '#'],
     ['#', '#', '#', '#', '#', '#', '#', '#', ' ', '#'],
-    ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+    ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],  # End
     ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
 ]
 
@@ -28,7 +28,7 @@ while True:
     for r in range(len(maze)):
         for c in range(len(maze[0])):
             if player['row'] == r and player['col'] == c:
-                print('*', end=' ')
+                print('*', end=' ')  # Player marker
             else:
                 print(maze[r][c], end=' ')
         print()
@@ -43,7 +43,7 @@ while True:
     
     # Check if the move is valid
     if move in directions:
-        # Update the player's position
+        # Update the player's position if the move is valid and not blocked by walls
         if move == 'UP' and maze[player['row'] - 1][player['col']] != '#':
             player['row'] -= 1
         elif move == 'DOWN' and maze[player['row'] + 1][player['col']] != '#':
