@@ -16,9 +16,7 @@ This is a simple text-based maze game implemented in Python. The player navigate
 - Use the arrow keys (`UP`, `DOWN`, `LEFT`, `RIGHT`) to move the player.
 - Avoid walls (`#`) and navigate through open spaces (` `) to reach the end.
 
-## Maze Legend
+## Features
 
-- `#`: Wall (cannot pass through)
-- ` `: Open space (can move through)
-- `*`: Player marker
-
+- **Dynamic Maze**: The maze updates dynamically to reflect the player's movement.
+- **Enhanced UI**: The console screen is cleared after each move for better visibility.
