@@ -1,15 +1,15 @@
-import random
+import os
 
 # Define the maze as a list of lists
 maze = [
     ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
-    ['#', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#'],  # Start
+    ['#', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#'],
     ['#', '#', '#', ' ', '#', ' ', '#', '#', '#', '#'],
     ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
     ['#', '#', '#', '#', '#', '#', '#', '#', ' ', '#'],
     ['#', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '#'],
     ['#', '#', '#', '#', '#', '#', '#', '#', ' ', '#'],
-    ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],  # End
+    ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
     ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
 ]
 
@@ -24,11 +24,14 @@ end = {'row': 7, 'col': 8}
 
 # Define the main game loop
 while True:
-    # Display the maze with the player's position
+    # Clear the console screen
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    # Update the maze with the player's position
     for r in range(len(maze)):
         for c in range(len(maze[0])):
             if player['row'] == r and player['col'] == c:
-                print('*', end=' ')  # Player marker
+                print('*', end=' ')
             else:
                 print(maze[r][c], end=' ')
         print()
@@ -43,14 +46,18 @@ while True:
     
     # Check if the move is valid
     if move in directions:
-        # Update the player's position if the move is valid and not blocked by walls
+        # Update the player's position
         if move == 'UP' and maze[player['row'] - 1][player['col']] != '#':
+            maze[player['row']][player['col']] = ' '  # Replace previous position with empty space
             player['row'] -= 1
         elif move == 'DOWN' and maze[player['row'] + 1][player['col']] != '#':
+            maze[player['row']][player['col']] = ' '  # Replace previous position with empty space
             player['row'] += 1
         elif move == 'LEFT' and maze[player['row']][player['col'] - 1] != '#':
+            maze[player['row']][player['col']] = ' '  # Replace previous position with empty space
             player['col'] -= 1
         elif move == 'RIGHT' and maze[player['row']][player['col'] + 1] != '#':
+            maze[player['row']][player['col']] = ' '  # Replace previous position with empty space
             player['col'] += 1
     else:
         print("Invalid move! Please enter UP, DOWN, LEFT, or RIGHT.")
