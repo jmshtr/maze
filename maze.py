@@ -27,13 +27,13 @@ while True:
     # Clear the console screen
     os.system('cls' if os.name == 'nt' else 'clear')
     
-    # Update the maze with the player's position
-    for r in range(len(maze)):
-        for c in range(len(maze[0])):
-            if player['row'] == r and player['col'] == c:
-                print('*', end=' ')  # Player marker
+    # Display the updated maze with the player's position
+    for row in range(len(maze)):
+        for col in range(len(maze[0])):
+            if player['row'] == row and player['col'] == col:
+                print('*', end=' ')  # Print player marker
             else:
-                print(maze[r][c], end=' ')
+                print(maze[row][col], end=' ')
         print()
     
     # Check if the player has reached the end
