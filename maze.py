@@ -17,24 +17,26 @@ player = {'row': 1, 'col': 1}
 # Define the end position of the maze
 end = {'row': rows - 2, 'col': cols - 2}
 
-# Define a function to generate the maze using Depth-First Search
+# Define a function to generate the maze using Depth-First Search algorithm
 def generate_maze():
-    stack = [(1, 1)]
-    visited = set()
+    stack = [(1, 1)]  # Start with the top-left cell
+    visited = set()   # Keep track of visited cells
     while stack:
-        current_cell = stack[-1]
-        maze[current_cell[0]][current_cell[1]] = ' '
-        visited.add(current_cell)
+        current_cell = stack[-1]  # Get the current cell
+        maze[current_cell[0]][current_cell[1]] = ' '  # Mark current cell as empty
+        visited.add(current_cell)  # Mark current cell as visited
+        # Generate the next cell's coordinates
         neighbors = [(current_cell[0] + 2, current_cell[1]), (current_cell[0] - 2, current_cell[1]),
                      (current_cell[0], current_cell[1] + 2), (current_cell[0], current_cell[1] - 2)]
+        # Filter unvisited neighboring cells
         unvisited_neighbors = [neighbor for neighbor in neighbors if 0 < neighbor[0] < rows - 1 and 0 < neighbor[1] < cols - 1 and neighbor not in visited]
         if unvisited_neighbors:
-            next_cell = random.choice(unvisited_neighbors)
-            wall_between = ((next_cell[0] + current_cell[0]) // 2, (next_cell[1] + current_cell[1]) // 2)
-            maze[wall_between[0]][wall_between[1]] = ' '
-            stack.append(next_cell)
+            next_cell = random.choice(unvisited_neighbors)  # Choose a random neighboring cell
+            wall_between = ((next_cell[0] + current_cell[0]) // 2, (next_cell[1] + current_cell[1]) // 2)  # Find the wall between current and next cell
+            maze[wall_between[0]][wall_between[1]] = ' '  # Remove the wall between current and next cell
+            stack.append(next_cell)  # Move to the next cell
         else:
-            stack.pop()
+            stack.pop()  # Backtrack if no unvisited neighboring cells
 
 # Generate the maze
 generate_maze()
@@ -51,9 +53,9 @@ while True:
     for r in range(rows):
         for c in range(cols):
             if player['row'] == r and player['col'] == c:
-                print('*', end=' ')
+                print('*', end=' ')  # Print player marker
             else:
-                print(maze[r][c], end=' ')
+                print(maze[r][c], end=' ')  # Print maze cell
         print()
     
     # Check if the player has reached the end
