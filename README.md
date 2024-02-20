@@ -1,6 +1,6 @@
 # Maze Game
 
-This is a simple text-based maze game implemented in Python. The player navigates through a maze represented by a grid of characters, trying to reach the end point while avoiding obstacles.
+This is a simple text-based maze game implemented in Python. The player navigates through a randomly generated maze, trying to reach the end point while avoiding obstacles.
 
 ## How to Play
 
@@ -18,5 +18,7 @@ This is a simple text-based maze game implemented in Python. The player navigate
 
 ## Features
 
+- **Randomly Generated Maze**: The maze is randomly generated using Depth-First Search algorithm.
 - **Dynamic Maze**: The maze updates dynamically to reflect the player's movement.
 - **Enhanced UI**: The console screen is cleared after each move for better visibility.
+
