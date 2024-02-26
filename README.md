@@ -6,7 +6,7 @@ Welcome to the Maze Game! This is a simple text-based maze game implemented in P
 
 1. **Clone the Repository**: Clone the repository to your local machine using `git clone`.
 2. **Navigate to the Directory**: Open your terminal and navigate to the directory where the code is located.
-3. **Run the Game**: Execute the Python script by running `python maze_game.py`.
+3. **Run the Game**: Execute the Python script by running `python maze.py`.
 4. **Navigate the Maze**: Use the arrow keys (`UP`, `DOWN`, `LEFT`, `RIGHT`) to move the player through the maze.
 5. **Reach the End**: Navigate to the end point of the maze to win the game.
 
